@@ -1,0 +1,171 @@
+@charset "utf-8";
+
+/* 폰트 ttf 적용 */
+@font-face {
+  font-family: "NEO";
+  src: url("../resources/images/kmj/kmj_NanumSquareNeo-bRg.ttf")
+    format("truetype"); 
+}
+@font-face {
+  font-family: "Luxerie";
+  src: url("../resources/images/kmj/kmj_Luxerie.ttf") format("truetype");
+}
+* {
+  font-family: "NEO";
+  margin: 0 auto;
+}
+header {
+  background: url(../resources/images/kmj/kmj.jpg);
+  text-align: center;
+  height: 500px;
+  width: auto;
+  color: white;
+}
+
+
+/*  헤더 메인 텍스트  */
+.main {
+  font-family: "Luxerie";
+  padding-top: 140px;
+  color: white;
+  font-size: 4em;
+  text-align: center;
+}
+.main_b {
+  font-family: "Luxerie";
+  font-size: 20px;
+}
+
+.otherwrap {
+  text-align: center;
+}
+
+.banner > p {
+  font-size: 20px;
+}
+
+
+/* 미디어쿼리 적용 */
+@media all and (max-width: 1065px) and (min-width: 801px) {
+  .main {
+    font-size: 3em;
+    padding-top: 157px;
+  }
+  header {
+    height: 500px;
+  }
+
+}
+@media all and (max-width: 800px) {
+  .main {
+    font-size: 35px;
+    padding-top: 100px;
+  }
+  .info{
+    height: 400px !important;
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+  }
+  header {
+    height: 350px;
+  }
+
+}
+@media all and (max-width: 420px) {
+  .main {
+    font-size: 30px;
+    padding-top: 80px;
+  }
+  header {
+    height: 300px;
+  }
+  .info{
+    height: 300px !important;
+    margin-left: 30px !important;
+    margin-right: 30px !important;
+  }
+  footer {
+    margin-bottom: 50px;
+
+  }
+  footer div {
+    display: none;
+  }
+  .terms_tt1 > p{
+    font-size: 15px;
+  }
+  tr > td{
+    font-size: 13px;
+  }
+  tr > td > img{
+    display: none;
+  }
+}
+
+
+
+/* 대중교통 */
+.terms_tt1 {
+  display: inline-block;
+  width: 25px;
+  height: 5px;
+  background: rgb(116, 113, 145);
+}
+
+.transport {
+  text-align: center;
+}
+
+.transport tr {
+  float: left;
+}
+
+/* 푸터 */
+footer {
+  background: rgb(255, 255, 255);
+  width: auto;
+  color: rgb(0, 0, 0);
+  height: auto;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+footer div a {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  margin-top: 15px;
+  opacity: 0.5;
+  color: white;
+}
+
+footer > div > a {
+  padding: 30px;
+}
+
+footer .insta {
+  background: url(../resources/images/kmj/kmj_ins.svg) 0 0 no-repeat;
+}
+footer .youtube {
+  background: url(../resources/images/kmj/kmj_youtube.svg) 0 0 no-repeat;
+}
+footer .twitter {
+  background: url(../resources/images/kmj/kmj_twitter.svg) 0 0 no-repeat;
+}
+
+
+/* 찾아오시는길 우측 */
+
+.home {
+  float: right;
+  margin-right: 90px;
+}
+
+tr,
+th,
+td {
+  text-align: center;
+  align-items: center;
+}
+
