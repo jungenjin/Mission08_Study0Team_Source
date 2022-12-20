@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>만월당</title>
+    <link rel="shortcut ico" href="../resources/images/jej/bread.svg" />
+    <link rel="icon" href="../resources/images/jej/bread.svg" />
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+   
+    <!-- css -->
+   <link rel="stylesheet" href="../css/jej_iocation.css" />
+
+   <!-- bootstrap JavaScript Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+   <!-- jQuery -->
+   <script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrap">
+        <!-- header -->
+        <header>
+            <div class="container">
+               <nav class="navbar navbar-expand-lg bg-light">
+                  <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src="../resources/images/jej/bread.ico" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#">회사 소개</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">제품 안내</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">이벤트&멤버쉽</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#">창업 안내</a>
+                         </li>
+                      </ul>
+                      <span class="navbar-text">
+                        <li><a href="#"><i class="fas fa-unlock-alt" style="font-size: 20px; color:#292929;"></i></a></li>
+                      </span>
+                      <span class="navbar-text">
+                        <li><a href="#"><i class="fas fa-user" style="font-size: 20px; color: #292929;"></i></a></li>
+                      </span>
+                    </div>
+                  </div>
+                </nav>
+            </div> 
+         </header>
+         <!-- section -->
+         <section>
+            <div class="container">
+                <div class="section">
+                    <h2 class="title">찾아오시는길</h2>
+                    <div id="map" style="width:100%;height:542px;"></div>
+                    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2623b9f28f9ab9dd494993135428f375"></script>
+      <script>
+         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+               center: new kakao.maps.LatLng(37.559505427340774, 127.00507610041961), // 지도의 중심좌표
+               level: 3 // 지도의 확대 레벨
+            };
+
+         var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+         // 마커가 표시될 위치입니다 
+         var markerPosition  = new kakao.maps.LatLng(37.559505427340774, 127.00507610041961); 
+
+         // 마커를 생성합니다
+         var marker = new kakao.maps.Marker({
+            position: markerPosition
+         });
+
+         // 마커가 지도 위에 표시되도록 설정합니다
+         marker.setMap(map);
+
+         // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+         // marker.setMap(null);  
+      </script>
+                    <div class="map_explanation">
+                        <h3>주소</h3>
+                        <div class="map1">
+                           <div class="icon1"><div class="svg1"></div></div>
+                           <div class="map_textbox1">
+                              <p class="text1"><span>도로명 주소</span>서울특별시 중구 동호로 24길 7 만월당</p>
+                              <p class="text1"><span>지명 주소</span>서울특별시 중구 장충동 2가 189-5</p>
+                           </div>
+                        </div>
+                        <h3>오시는 길</h3>
+                        <div class="map2">
+                           <div class="icon2"><div class="svg2"></div></div>
+                           <div class="map_textbox2">
+                              <p class="text2"><span>지하철</span>3호선 동대입구역 2번출구 (도보 1분)</p>
+                           </div>
+                        </div>
+                        <div class="map3">
+                           <div class="icon3"><div class="svg3"></div></div>
+                           <div class="map_textbox2">
+                              <p class="text2"><span>버스</span>420, 144, 407, 301 (도보 8분)</p>
+                           </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+         </section>
+         <!-- footer -->
+         <footer>
+            <div class="container">
+                <div class="footer">
+                    <div class="part_4box1">
+                        <p class="text7">Contact Us</p>
+                        <p class="text8">1566-1599</p>
+                        <p class="text9">소비자를 생각하는, 지역을 생각하는 <br>
+                        상생과 정성을 실천하는 만월당</p>
+                    </div>
+                    <div class="part_4box2">
+                        <p class="text7">Featured News</p>
+                        <div class="boximg5"></div>
+                        <div class="text_box3">
+                            <p class="text10">만월당 1호점 오픈</p>
+                            <p class="text9">이번 13일, 만월당이 일본에 1호점을 오픈했다.<br>
+                                한국을 넘어 해외로 진출한 만월당의 성장이 기대된다.</p>
+                        </div>
+                    </div>
+                    <div class="part_4box3">
+                        <p class="text7">SNS</p>
+                        <i class="fab fa-youtube" style="color: #161a1d; font-size: 24px;"></i>
+                        <i class="fab fa-twitter" style="color: #161a1d; font-size: 24px;  margin: 0 0 0 15px;"></i>
+                        <i class="fab fa-instagram-square" style="color: #161a1d; font-size: 24px; margin: 0 0 0 15px;"></i>
+                    </div>
+                </div>
+        </footer> 
+    </div>
+</body>
+</html>
