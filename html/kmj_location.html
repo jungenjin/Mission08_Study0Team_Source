@@ -185,36 +185,57 @@
         </table>
       </div>
   
+       <!-- 지도 api -->
       <script
         type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b781666cb281a3999a9487eb65f7f86b"
       ></script>
       <script>
+        // 브라우저 크기가 변화할때마다 마커를 이동시키기위해 전역변수 지정
+        var map = null;
+        var marker = null;
+
+        window.onload = function () {
         var mapContainer = document.getElementById("map"),
-          mapOption = {
-            center: new kakao.maps.LatLng(37.555244, 126.92241),
-            level: 3,
-          };
-  
-        var map = new kakao.maps.Map(mapContainer, mapOption);
-  
-        var markerPosition = new kakao.maps.LatLng(37.555244, 126.92241);
-  
-        var marker = new kakao.maps.Marker({
-          position: markerPosition,
-        });
-  
-        marker.setMap(map);
-  
-        var iwContent =
-            '<div style="padding:5px, font-family: "Ubuntu", sans-serif, text-allign:center;">  CON SHOP <br><a href="https://map.kakao.com/link/map/CON SHOP,37.555244, 126.92241" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/CON SHOP,37.555244, 126.92241" style="color:blue" target="_blank">길찾기</a></div>',
-          iwPosition = new kakao.maps.LatLng(37.555244, 126.92241);
-  
-        var infowindow = new kakao.maps.InfoWindow({
+         mapOption = {
+                 center: new kakao.maps.LatLng(37.555244, 126.92241), // 지도의 중심좌표
+                level: 3, 
+              };
+
+          var mapContainer = document.getElementById("map"),
+              mapOption = {
+                center: new kakao.maps.LatLng(37.555244, 126.92241), // 지도의 중심좌표
+                level: 3, 
+              };
+
+          map = new kakao.maps.Map(mapContainer, mapOption);
+
+          var markerPosition = new kakao.maps.LatLng(37.555244, 126.92241);
+
+          marker = new kakao.maps.Marker({position: markerPosition});
+          marker.setMap(map);
+          map.setCenter(markerPosition);
+          
+          var iwContent =
+          '<div style="padding:5px, font-family: "Ubuntu", sans-serif, text-allign:center;">  CON SHOP <br><a href="https://map.kakao.com/link/map/CON SHOP,37.555244, 126.92241" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/CON SHOP,37.555244, 126.92241" style="color:blue" target="_blank">길찾기</a></div>',
+          iwPosition = new kakao.maps.LatLng(37.555244, 126.92241);;
+            
+          var infowindow = new kakao.maps.InfoWindow({
           position: iwPosition,
-          content: iwContent,
-        });
-        infowindow.open(map, marker);
+          content: iwContent,});
+          infowindow.open(map, marker)
+        };
+        
+        // onresize 이벤트 함수를 이용하여 맵과 마커의 위치를 relayout함수로 불러오고, 마커의 위치를 센터로 지정
+        window.onresize = function () {
+              console.log("resize");
+              if (map != null) { map.relayout();
+                  if (marker != null) {
+                    var markerPosition = marker.getPosition();
+                    map.setCenter(markerPosition);
+                  }
+                }
+              };
       </script>
       <footer>
         <br />
