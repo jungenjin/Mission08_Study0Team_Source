@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과자먹자 자주 묻는 질문</title>
+    <link rel="stylesheet" href="../css/sjb_local.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      $(function(){
+          $(".tab ul li").click(function(){ 
+              $(".tab ul li").removeClass('on');
+              $(".tab .conBox").removeClass('on');
+              $(this).addClass('on');
+              $("#"+$(this).data('id')).addClass('on');
+          });
+      });
+  </script>
+    
+    
+</head> 
+<body>
+  <!-- 부트스트랩을 이용한 네비 바 -->
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="fas fa-cookie-bite"></i><span class="logoName">과자먹자</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">메인 홈</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">과자모음</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">선물하기</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">특가이벤트</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">구독하기</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">로그인</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">로그아웃</a>
+          </li><li class="nav-item">
+            <a class="nav-link" href="#">자주 묻는 질문</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="검색어를 입력해주세요." aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">찾기</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="main_wrap ">
+    <div class="container">
+      <div class="row">
+        <div class="local_welcome">오시는 길</div>
+        <div class="col-12" id="map_header">
+          <a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%9A%A9%EC%82%B0%EA%B5%AC%20%ED%95%9C%EA%B0%95%EB%8C%80%EB%A1%9C%2052/address/14133636.357355688,4512592.958374886,%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C%20%EC%9A%A9%EC%82%B0%EA%B5%AC%20%ED%95%9C%EA%B0%95%EB%8C%80%EB%A1%9C%2052,new?c=14133610.1486616,4512589.7798839,19,0,0,0,dh&isCorrectAnswer=true" target="_blank"><button class="btn btn-secondary">네이버 지도로 보기</button></a>  
+          <div class="where">
+              우편번호 : 04388 <br>
+            주소 :서울특별시 용산구 한강대로 52-5 3층<br>
+            <span id="youngsan">용산역(1호선)</span>에서 534m (도보 약 10분)<br>
+            <div><span id="sinyoungsan">신용산역</span>에서 446m (도보 약7분)<br></div>
+          </div>
+        </div>
+        <div class="col-4" id="map_body">
+        </div>
+        <div class="col-4" id="map_body">
+          <div id="map" style="width:350px;height:350px;"></div>
+          <div id="clickLatlng"></div>
+          <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=04ed4e58c6dc36cca3a4e11ae4b1e2ab" ></script>
+          <script>
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = { 
+              center: new kakao.maps.LatLng( 37.52538164262179,  126.9646503523393), // 지도의 중심좌표
+              level: 3 // 지도의 확대 레벨
+            };
+            
+            var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+            
+            // 지도를 클릭한 위치에 표출할 마커입니다
+            var marker = new kakao.maps.Marker({ 
+              // 지도 중심좌표에 마커를 생성합니다 
+            position: map.getCenter() 
+          }); 
+          // 지도에 마커를 표시합니다
+          marker.setMap(map);
+          
+          // 지도에 클릭 이벤트를 등록합니다
+          // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+          kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+            
+            // 클릭한 위도, 경도 정보를 가져옵니다 
+            var latlng = mouseEvent.latLng; 
+            
+            // 마커 위치를 클릭한 위치로 옮깁니다
+            marker.setPosition(latlng);
+            
+
+            
+        });
+          </script>
+        </div>
+        <div class="col-4" id="map_body">
+        </div>
+        </div>
+      </div>
+      <div class="tab_wrap">
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+            </div>
+            <div class="col-4">
+              <div class="tab">
+                <ul>
+                 <li data-id="con1" class="on">용산역</li>
+                  <li data-id="con2">신용산역</li>
+                </ul>
+                <div id="con1" class="conBox on">
+                  <img calss ="youngsan" src="../resources/images/son/youngsan.jpg" alt="용산 이미지" height="100%"width="100%" >
+                </div>
+                <div id="con2" class="conBox">
+                  <img src="../resources/images/son/sinyoungsan.jpg" alt="신용산 이미지"  height="100%"width="100%">
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- 푸터 -->
+  <footer>
+    <div class="down_logo col-md-4">
+      <span>
+        상호 : (주)과자먹자<br>
+        대표 : 이과자<br>
+       주소 : 서울특별시 용산구 한강대로 52-5 3층<br>
+       사업자 등록 번호 521-4567-99876<br>
+       제휴 문의 snackeat@snackeat.co.kr<br>       
+     </span>
+    </div>
+    <div class="copyright col-md-4">
+      <span>
+        <h2>고객 상담 센터</h2><br>
+        <h3>1588-4152</h3><br>
+        상담시간 : 오전 10:00 ~ 오후 5:00<br>
+        점심시간 : 오후 12:00 ~ 오후 1:00<br>         
+      </span>
+      <br>
+      <span>Copyright &copy; 과자먹자 . All rights reserved.</span><br>
+    </div>
+    <div class="sns col-md-4">
+      <div id="kind">
+        <img class="instar" width="30px" src="../resources/images/son/instagram_icon.png" alt="인스타">
+        <img class="youtube" width="30px" src="../resources/images/son/youtubelogoicon.svg" alt="유투브">
+        <img class="twitter" width="30px" src="../resources/images/son/twitter logo_icon.png" alt="트위터">
+      </div>
+    </div>
+  </footer>
+ 
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,154 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'KyoboHandwriting2020A';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/KyoboHandwriting2020A.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-size: 12px;
+    font-family: 'KyoboHandwriting2020A';
+}
+
+.main_wrap{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: whitesmoke;
+}
+
+.local_welcome{
+  font-weight: bold;
+  font-size: 2.0rem;
+  text-align: center;
+}
+
+#map_header{
+  text-align: center;
+}
+
+.where{
+  padding-bottom: 3%;
+  text-align: center;
+}
+
+#youngsan{
+  color: blue;
+}
+
+#sinyoungsan{
+  color: skyblue;
+}
+
+/* 탭박스 */
+
+.tab{
+  margin-top: 5%;
+}
+
+.tab>ul>:first-child{
+  border: 1px solid;
+}
+
+.tab>ul>:nth-child(2){
+  border: 1px solid;
+}
+
+.tab{
+  width:200px;
+  height:auto;
+  overflow:hidden;
+}
+
+.tab ul{
+  padding:0;
+  margin:0;
+  list-style:none;
+  width:100%;
+  height:auto;
+  overflow:hidden;
+}
+
+.tab ul li{
+  display:inline-block;
+  width:33.3333%;
+  float:left;
+  line-height:40px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.tab ul li:hover,
+.tab ul li.on{
+  background:#ccc;
+}
+
+.tab .conBox{
+  width:100%;
+  height:auto;
+  overflow:hidden;
+  min-height:200px;
+  background:#ccc;
+  display:none;
+  text-align:center;
+}
+
+.tab .conBox.on{
+  display:block;
+}
+
+.youngsan{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.sinyoungsan{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+
+
+
+/* 푸터 시작 */
+
+footer{
+    width: 100%;
+   height: auto; 
+    float: left;
+    background: #EAEAEA;
+    color: black;
+    text-align: center;
+  }
+  
+  .down_logo{
+    padding-top: 5%;
+    width: 35%;
+    height: 100%;
+    float: left;
+  
+  }
+  
+  .copyright{
+    padding-top: 5%;
+    width: 35%;
+    height: 80%;
+    float: left;
+    border-left: 2px solid darkgray;
+    border-right: 2px solid darkgray;
+  
+  
+  }
+
+  .sns{
+    margin-top: 5%;
+    width: 30%;
+    height: 100%;
+    float: right;
+  
+  }
+
+  /* 푸터 끝 */
